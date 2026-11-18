@@ -4,21 +4,28 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import HandymanIcon from "@mui/icons-material/Handyman";
+import OilBarrelIcon from '@mui/icons-material/OilBarrel';
 import ViewDetailsBtn from "@/src/components/Buttons/ViewDetailsBtn";
 
-type ServiceCardProps = {
-  title?: string;
-  description?: string;
-  buttonText?: string;
-  onClick?: () => void;
+export type Service = {
+  _id: string;
+  name: string;
+  description: string;
+  estimatedDuration: number;
+  serviceFee: number;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
 };
 
-export default function ServiceCard({
-  title = "General Service",
-  description = "Maintenance & Check-up",
-  buttonText = "View Details",
-  onClick,
-}: ServiceCardProps) {
+type ServiceCardProps = {
+  service: Service;
+};
+
+export default function ServiceCard({ service }: ServiceCardProps) {
+  // Don't display inactive services
+  if (!service.isActive) return null;
+
   return (
     <Card
       sx={{
@@ -44,26 +51,35 @@ export default function ServiceCard({
         }}
       >
         {/* Service Icon */}
-        <HandymanIcon
-          sx={{
-            fontSize: 64,
-            color: "#2D4085",
-          }}
-        />
+        {service.name.includes("Oil") || service.name.includes("oil") ? (
+          <OilBarrelIcon
+            sx={{
+              fontSize: 64,
+              color: "#2D4085",
+            }}
+          />
+        ) : (
+          <HandymanIcon
+            sx={{
+              fontSize: 64,
+              color: "#2D4085",
+            }}
+          />
+        )}
 
-        {/* Service Title */}
+        {/* Service Name */}
         <h2 className="text-2xl font-bold text-[#2D4085]">
-          {title}
+          {service.name}
         </h2>
 
         {/* Description */}
         <p className="mt-1 text-lg text-black mb-8">
-          {description}
+          {service.description}
         </p>
 
         {/* View Details Button */}
-        <ViewDetailsBtn onClick={onClick}>
-          {buttonText}
+        <ViewDetailsBtn service={service}>
+          View Details
         </ViewDetailsBtn>
       </CardContent>
     </Card>
