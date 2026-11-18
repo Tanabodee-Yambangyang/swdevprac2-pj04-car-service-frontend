@@ -13,7 +13,7 @@ export default function BookNowBtn({
   className = "",
 }: ButtonProps) {
   const baseStyles =
-    "cursor-pointer flex items-center justify-center gap-5 px-10 py-4 text-lg font-normal transition-all duration-200 hover:opacity-90";
+    "cursor-pointer h-[49px] flex items-center justify-center gap-5 px-10 py-4 text-lg font-normal transition-all duration-200 hover:opacity-90";
 
   const variants = {
     primary: "bg-[#2D4085] text-white rounded-xl",

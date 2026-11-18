@@ -184,7 +184,7 @@ export default function ViewDetailsBtn({
                             borderRadius: "30px",
                             border: "2px solid #2D4085",
                             color: "#2D4085",
-                            fontSize: 18,
+                            fontSize: 20,
                             fontWeight: 700,
                             textTransform: "none",
                             "&:hover": {
