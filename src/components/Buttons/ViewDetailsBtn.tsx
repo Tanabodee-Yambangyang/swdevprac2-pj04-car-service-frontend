@@ -46,7 +46,7 @@ export default function ViewDetailsBtn({
     const handleClose = () => setOpen(false);
 
     const router = useRouter();
-    
+
     return (
         <>
             {/* View Details Trigger */}
@@ -193,7 +193,14 @@ export default function ViewDetailsBtn({
                     </Button>
 
                     {/* Book Now Button */}
-                    <BookNowBtn variant="secondary" onClick={() => router.push("/booking")} />
+                    <BookNowBtn
+                        variant="secondary"
+                        onClick={() => {
+                            router.push(
+                                `/booking?service=${encodeURIComponent(service._id)}`
+                            );
+                        }}
+                    />
                 </DialogActions>
             </Dialog>
         </>

@@ -42,7 +42,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         py: 3,
       }}
     >
-      <div className="flex flex-row items-center w-full gap-5">
+      <div className="flex flex-row items-center gap-4 w-full">
 
         {/* Service Information */}
         <div className="flex items-center gap-8 flex-1 min-w-0">
