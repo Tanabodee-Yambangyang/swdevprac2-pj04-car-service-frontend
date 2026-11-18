@@ -35,6 +35,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 type AppointmentCardProps = {
     appointment: Appointment;
     services: Service[];
+    isAdmin?: boolean;
 };
 
 const TIME_SLOTS = [
@@ -75,6 +76,7 @@ function formatAppointmentTime(time: string) {
 export default function AppointmentCard({
     appointment,
     services,
+    isAdmin
 }: AppointmentCardProps) {
     const router = useRouter();
 
@@ -271,6 +273,29 @@ export default function AppointmentCard({
                             </span>
                         </div>
                     </div>
+
+
+                    {/* Customer Information - Admin Only */}
+                    {isAdmin && (
+                        <div className="flex-1 border-t lg:border-t-0 lg:border-l border-gray-300 pt-4 lg:pt-0 lg:pl-5">
+                            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                                Customer Information
+                            </p>
+
+                            <p className="text-sm font-semibold text-[#2D4085]">
+                                {appointment.user.name}
+                            </p>
+
+                            <p className="mt-1 text-sm text-gray-600 break-all">
+                                {appointment.user.email}
+                            </p>
+
+                            <p className="mt-1 text-sm text-gray-600">
+                                {appointment.user.tel}
+                            </p>
+                        </div>
+                    )}
+
 
                     {/* Appointment Date and Time */}
                     <div className="flex-1 border-t lg:border-t-0 lg:border-l border-gray-300 pt-4 lg:pt-0 lg:pl-5">
@@ -556,8 +581,8 @@ export default function AppointmentCard({
                                             disabled={!selectedDate}
                                             onClick={() => setSelectedTime(time)}
                                             className={`cursor-pointer h-11 rounded-lg border text-sm transition-colors ${selectedTime === time
-                                                    ? "bg-[#2D4085] text-white border-[#2D4085]"
-                                                    : "border-gray-300 text-[#2D4085] hover:bg-blue-50"
+                                                ? "bg-[#2D4085] text-white border-[#2D4085]"
+                                                : "border-gray-300 text-[#2D4085] hover:bg-blue-50"
                                                 } disabled:opacity-40 disabled:cursor-not-allowed`}
                                         >
                                             {formatAppointmentTime(time)}
