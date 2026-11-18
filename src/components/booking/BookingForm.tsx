@@ -289,8 +289,8 @@ export default function BookingForm({
                                 className={`
                   h-12 rounded-lg border text-sm transition-colors
                   ${selectedTime === time
-                                        ? "bg-[#2D4085] text-white border-[#2D4085]"
-                                        : "border-gray-300 text-[#2D4085] hover:bg-blue-50"
+                                        ? "cursor-default bg-[#2D4085] text-white border-[#2D4085]"
+                                        : "cursor-pointer border-gray-300 text-[#2D4085] hover:bg-blue-50"
                                     }
                   disabled:opacity-40 disabled:cursor-not-allowed
                 `}

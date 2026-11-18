@@ -6,6 +6,8 @@ import { redirect } from "next/navigation";
 
 import { authOptions } from "@/src/app/api/auth/[...nextauth]/route";
 import { getAppointments } from "@/src/lib/appointments";
+import { getServices } from "@/src/lib/services";
+
 import AppointmentCard from "@/src/components/cards/AppointmentCard";
 
 async function AppointmentsContent() {
@@ -17,17 +19,20 @@ async function AppointmentsContent() {
     redirect("/login");
   }
 
-  const appointments = await getAppointments(session.user.accessToken);
+  const [appointments, services] = await Promise.all([
+    getAppointments(session.user.accessToken),
+    getServices(),
+  ]);
 
   return (
-    <section className="max-w-6xl mx-auto px-5 sm:px-8 pb-12">      
-
+    <section className="max-w-6xl mx-auto px-5 sm:px-8 pb-12"> 
       {appointments.length > 0 ? (
         <div className="flex flex-col gap-5">
           {appointments.map((appointment) => (
             <AppointmentCard
               key={appointment._id}
               appointment={appointment}
+              services={services}
             />
           ))}
         </div>
@@ -56,7 +61,6 @@ async function AppointmentsContent() {
 export default function MyAppointmentsPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Page Header */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-10 pb-8">
         <h1 className="text-3xl font-bold text-[#2D4085]">
           My Appointments
