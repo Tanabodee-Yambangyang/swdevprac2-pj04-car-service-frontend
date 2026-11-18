@@ -2,6 +2,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
 
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -32,25 +33,20 @@ type ButtonProps = {
     children?: React.ReactNode;
     className?: string;
     service: Service;
-    onBookNow?: (serviceId: string) => void;
 };
 
 export default function ViewDetailsBtn({
     children = "View Details",
     className = "",
     service,
-    onBookNow,
 }: ButtonProps) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const handleBookNow = () => {
-        setOpen(false);
-        onBookNow?.(service._id);
-    };
-
+    const router = useRouter();
+    
     return (
         <>
             {/* View Details Trigger */}
@@ -197,7 +193,7 @@ export default function ViewDetailsBtn({
                     </Button>
 
                     {/* Book Now Button */}
-                    <BookNowBtn variant="secondary" />
+                    <BookNowBtn variant="secondary" onClick={() => router.push("/booking")} />
                 </DialogActions>
             </Dialog>
         </>

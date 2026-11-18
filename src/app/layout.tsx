@@ -5,6 +5,8 @@ import "./globals.css";
 import NavBar from "@/src/components/NavBar";
 import ThemeRegistry from "@/src/components/ThemeRegistry";
 
+import AuthProvider from "@/src/components/providers/AuthProvider";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,8 +34,10 @@ export default function RootLayout({
     >
       <body className="flex flex-col h-full">
         <ThemeRegistry>
-          <NavBar />
-          {children}
+          <AuthProvider>
+            <NavBar />
+            {children}
+          </AuthProvider>
         </ThemeRegistry>
       </body>
     </html>
