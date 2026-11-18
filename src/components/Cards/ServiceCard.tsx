@@ -42,6 +42,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       <CardContent
         sx={{
           width: "100%",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -78,9 +79,11 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         </p>
 
         {/* View Details Button */}
-        <ViewDetailsBtn service={service}>
-          View Details
-        </ViewDetailsBtn>
+        <div className="mt-auto">
+          <ViewDetailsBtn service={service}>
+            View Details
+          </ViewDetailsBtn>
+        </div>
       </CardContent>
     </Card>
   );
