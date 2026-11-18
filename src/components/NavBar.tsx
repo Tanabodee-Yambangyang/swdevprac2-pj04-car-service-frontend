@@ -52,7 +52,7 @@ export default function NavBar() {
                 Book
               </Button>
 
-              <Button color="inherit" href="/appointments">
+              <Button color="inherit" href="/my-appointments">
                 My Appointment
               </Button>
 

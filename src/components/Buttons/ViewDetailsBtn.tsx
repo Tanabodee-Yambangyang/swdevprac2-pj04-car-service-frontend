@@ -52,7 +52,7 @@ export default function ViewDetailsBtn({
             {/* View Details Trigger */}
             <button
                 onClick={handleClickOpen}
-                className={`cursor-pointer flex items-center justify-center px-10 py-4 text-lg font-bold rounded-full text-[#2D4085] bg-[#DBEAFE] transition-all duration-200 hover:opacity-90 ${className}`}
+                className={`cursor-pointer flex items-center justify-center px-10 py-4 text-sm font-bold rounded-full text-[#2D4085] bg-[#DBEAFE] transition-all duration-200 hover:opacity-90 ${className}`}
             >
                 {children}
             </button>

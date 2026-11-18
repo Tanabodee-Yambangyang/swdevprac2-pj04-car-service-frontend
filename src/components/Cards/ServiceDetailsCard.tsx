@@ -61,7 +61,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
               {service.name}
             </h2>
 
-            <p className="text-sm text-black mt-2">
+            <p className="text-sm text-black mt-2 ">
               {service.description}
             </p>
           </div>
