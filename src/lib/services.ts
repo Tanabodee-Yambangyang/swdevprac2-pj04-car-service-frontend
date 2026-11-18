@@ -18,7 +18,7 @@ type ServicesResponse = {
 
 const API_URL = process.env.API_URL;
 
-export async function getServices(): Promise<Service[]> {
+export async function getAllServices(): Promise<Service[]> {
   const response = await fetch(`${API_URL}/services`, {
     method: "GET",
     headers: {
@@ -37,6 +37,12 @@ export async function getServices(): Promise<Service[]> {
     throw new Error("Failed to retrieve services");
   }
 
-  // Only return active services
-  return result.data.filter((service) => service.isActive);
+  return result.data;
+}
+
+export async function getServices(): Promise<Service[]> {
+  const services = await getAllServices();
+
+  // Only return active services for customers.
+  return services.filter((service) => service.isActive);
 }
