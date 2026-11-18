@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import BookNowBtn from "@/src/components/Buttons/BookNowBtn";
+import BookNowBtn from "@/src/components/buttons/BookNowBtn";
 
 export default function Banner() {
     return (

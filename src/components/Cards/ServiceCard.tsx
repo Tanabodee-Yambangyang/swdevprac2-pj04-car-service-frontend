@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import HandymanIcon from "@mui/icons-material/Handyman";
 import OilBarrelIcon from '@mui/icons-material/OilBarrel';
-import ViewDetailsBtn from "@/src/components/Buttons/ViewDetailsBtn";
+import ViewDetailsBtn from "@/src/components/buttons/ViewDetailsBtn";
 
 export type Service = {
   _id: string;

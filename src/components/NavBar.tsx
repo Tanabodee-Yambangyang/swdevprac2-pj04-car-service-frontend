@@ -23,13 +23,15 @@ export default function NavBar() {
           px: "36px",
         }}
       >
-        <div className="flex justify-center items-center gap-2">
+        <a className="flex justify-center items-center gap-2 cursor-pointer" href="/">
           <DirectionsCarFilledIcon />
           <h1 className="text-white text-xl font-bold">AutoEase</h1>
-        </div>
+        </a>
 
         <div className="flex items-center gap-8">
-          <Button color="inherit">Services</Button>
+          <Button color="inherit" href='/services'>
+            Services
+          </Button>
           <Button color="inherit">Login</Button>
           <Button color="inherit">Register</Button>
         </div>

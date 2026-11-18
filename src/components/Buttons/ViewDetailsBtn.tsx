@@ -14,7 +14,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PaidIcon from "@mui/icons-material/Paid";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-import BookNowBtn from "@/src/components/Buttons/BookNowBtn";
+import BookNowBtn from "@/src/components/buttons/BookNowBtn";
 
 
 type Service = {

@@ -2,7 +2,7 @@
 import { Suspense } from "react";
 
 import Banner from "@/src/components/Banner";
-import ServiceCard from "@/src/components/Cards/ServiceCard";
+import ServiceCard from "@/src/components/cards/ServiceCard";
 import { getServices } from "@/src/lib/services";
 
 async function ServicesSection() {
@@ -20,9 +20,16 @@ async function ServicesSection() {
         </p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-          {services.map((service) => (
-            <ServiceCard key={service._id} service={service} />
-          ))}
+          {services.length === 0 ? (
+            <p className="text-center text-gray-500">
+              No services available.
+            </p>
+          ) : (
+            services.slice(0, 3).map((service) => (
+              <ServiceCard key={service._id} service={service} />
+            ))
+          )}
+
         </div>
       )}
     </section>
